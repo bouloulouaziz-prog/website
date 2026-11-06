@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Testlog - Kantine en studenten Hogeschool Rotterdam</title>
+<link rel="stylesheet" href="../css/stijl.css">
+</head>
+<body>
+<header><div class="wrap"><p class="merk">Hogeschool Rotterdam in cijfers</p><nav aria-label="Hoofdmenu"><a href="../index.html">Start</a><a href="../cijfers.html">Cijfers</a><a href="../kantine.html">Kantine</a><a href="../aanbeveling.html">Aanbeveling</a></nav></div></header>
+<main class="wrap">
+<h1>Testlog</h1>
+<p>Getest op 28 oktober 2026 met een script en met de browser Chromium (Playwright) vanaf een gekopieerde map op een andere plek (file://, zonder server en zonder internet voor de site zelf).</p>
+<h2>Testen</h2>
+<div class="table-scroll"><table><thead><tr><th scope="col">Test</th><th scope="col">Hoe</th><th scope="col">Resultaat</th></tr></thead><tbody>
+<tr><td>Links en bestanden</td><td><code>hulpmiddelen/controle_links.py</code> loopt door alle html-bestanden en controleert elke lokale link, plaatje en css, en of elk plaatje alt-tekst heeft.</td><td>Eerste run, voordat het testlog bestond: 5 verwijzingen naar <code>logboeken/testlog.html</code> werkten niet (verwacht, bestand ontbrak nog). Na het schrijven van dit testlog: 0 fouten.</td></tr>
+<tr><td>Kopieren van de map</td><td>Hele map gekopieerd naar een andere map en daar index.html geopend in de browser. Alle 4 pagina's geladen, css actief, 2 grafieken zichtbaar.</td><td>Geslaagd.</td></tr>
+<tr><td>Broncijfers</td><td>Cijfers op de site vergeleken met de pdf-pagina's 13 en 14 van het jaarverslag. Totaal 2021-2025: 41.047, 39.447, 38.731, 38.170, 37.445. 2025 per type: 31.841 + 4.358 + 1.246 = 37.445. Factsheet geeft dezelfde cijfers voor 2025.</td><td>Alle cijfers kloppen. Verschillen nagerekend: 41.047 - 37.445 = 3.602; 36.605 - 31.841 = 4.764; 31.841 / 37.445 = 85 procent.</td></tr>
+<tr><td>Begrijpelijkheid</td><td>Elke pagina gelezen met de vraag: begrijpt een student dit zonder uitleg? Eenvoudige taal, korte zinnen, aannames duidelijk gemarkeerd.</td><td>Geslaagd. De medestudent-test staat hieronder.</td></tr>
+<tr><td>Andere schermbreedte</td><td>Alle pagina's bekeken op 1280 pixels (computer) en 375 pixels (telefoon). Gecontroleerd op horizontaal scrollen en leesbaarheid.</td><td>Geen horizontaal scrollen. Een fout bij de grafieken: zie hieronder.</td></tr>
+</tbody></table></div>
+<h2>Echte fout, herstel en hertest</h2>
+<div class="table-scroll"><table><tbody>
+<tr><th scope="row">Fout</th><td>Op 375 pixels breed waren de teksten in de grafieken (jaartallen, aantallen, as-titel) te klein om te lezen. De grafiek was als brede afbeelding (8 x 4,6 inch) gemaakt en werd op de telefoon sterk verkleind. De lettertjes kwamen ongeveer 6 pixels hoog uit.</td></tr>
+<tr><th scope="row">Herstel</th><td>Grafieken opnieuw gemaakt in een bijna vierkant formaat (5,2 x 5,2 inch) met grotere letters, een kortere titel en een kortere as-titel. De uitgebreide bronvermelding staat onder de grafiek in tekst. Script: <code>hulpmiddelen/maak_grafieken.py</code>.</td></tr>
+<tr><th scope="row">Dezelfde hertest</th><td>Dezelfde test opnieuw: alle pagina's op 375 pixels in Chromium vanaf de gekopieerde map. Resultaat: geen horizontaal scrollen, beide grafieken laden, en de jaartallen en aantallen zijn goed leesbaar. Op de computer (1280 pixels) ziet de grafiek er ook goed uit. Geslaagd.</td></tr>
+</tbody></table></div>
+<h2>Tweede fout: bronnenpagina op de telefoon</h2><p>Na een wijziging van de site liep de bronnenpagina op 375 pixels breed buiten het scherm (856 pixels), door de lange bronlinks. Herstel: lange tekst mag in de css afbreken (<code>overflow-wrap</code>). Dezelfde hertest op 375 pixels: alle pagina's passen nu in het scherm.</p><h2>Nog te doen door Ilyas: medestudent-test</h2>
+<p>De opdracht vraagt dat een medestudent beide grafieken uitlegt. Dit is nog niet gedaan, want dat kan alleen een echte medestudent. Vul onderstaande tabel in.</p>
+<div class="table-scroll"><table><thead><tr><th scope="col">Grafiek</th><th scope="col">Naam medestudent</th><th scope="col">Uitleg in eigen woorden</th><th scope="col">Was het goed? Wat was onduidelijk?</th><th scope="col">Aanpassing</th></tr></thead><tbody>
+<tr><td>Grafiek 1</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td>Grafiek 2</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</tbody></table></div>
+</main>
+<footer><div class="wrap"><p><a href="../index.html">Terug naar de start</a></p></div></footer>
+</body>
+</html>
